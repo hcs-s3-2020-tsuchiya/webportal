@@ -7,6 +7,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Controller
 public class ZipCodeController {
 	
@@ -20,6 +23,7 @@ public class ZipCodeController {
 	@PostMapping("/zip")
 	public String getZipCode(@RequestParam("zipcode") String zipcode,
 			Principal principal,Model model) {
+		log.info("["+principal.getName()+"]住所検索結果:"+zipcode);
 		return "zipcode/zipcode";
 	}
 
