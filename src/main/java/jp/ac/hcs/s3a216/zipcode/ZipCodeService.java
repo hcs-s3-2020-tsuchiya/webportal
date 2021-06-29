@@ -46,16 +46,34 @@ public class ZipCodeService {
 			
 			//statusパラメータの抽出
 			String status = node.get("status").asText();
+			zipCodeEntity.setStatus(status);
+			//messageパラメータの抽出
+			String message = node.get("message").asText();
+			zipCodeEntity.setMessage(message);
 			
 			//resultパラメータの抽出（配列分取得する）
+			for(JsonNode result:node.get("results")) {
+				//データクラスの生成（result1件分）
+				ZipCodeData zipCodeData = new ZipCodeData();
+				
+				zipCodeData.setZipcode(result.get("zipcode").asText());
+				zipCodeData.setPrefcode(result.get("prefcode").asText());
+				zipCodeData.setAddress1(result.get("address1").asText());
+				zipCodeData.setAddress2(result.get("address2").asText());
+				zipCodeData.setAddress3(result.get("address3").asText());
+				zipCodeData.setKana1(result.get("kana1").asText());
+				zipCodeData.setKana2(result.get("kana2").asText());
+				zipCodeData.setKana3(result.get("kana3").asText());
+				
+				//可変長配列の末尾に追加
+				zipCodeEntity.getResults().add(zipCodeData);
+			}
 			
-			
+		}catch(IOException e) {
+			//例外発生時は、エラーメッセージの詳細を標準エラー出力
+			e.printStackTrace();
 		}
-		
-		
-		
-		
-		
+		return zipCodeEntity;
 		
 	}
 

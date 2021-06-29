@@ -1,6 +1,7 @@
 package jp.ac.hcs.s3a216.zipcode;
 
 import lombok.Data;
+
 /**
  * 1件分の郵便番号情報
  *

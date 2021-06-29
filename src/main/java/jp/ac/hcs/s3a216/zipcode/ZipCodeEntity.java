@@ -1,9 +1,13 @@
 package jp.ac.hcs.s3a216.zipcode;
 
+
+
 import java.util.ArrayList;
 import java.util.List;
 
 import lombok.Data;
+
+
 
 /**
  * 郵便番号情報検索結果の店舗情報、
@@ -21,7 +25,7 @@ public class ZipCodeEntity {
 	private String message;
 	
 	/**郵便番号情報のリスト*/
-	private List<ZipCodeData> result = new ArrayList<ZipCodeData>();
+	private List<ZipCodeData> results = new ArrayList<ZipCodeData>();
 	
 
 }
