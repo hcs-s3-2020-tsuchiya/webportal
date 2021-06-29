@@ -40,7 +40,7 @@
 <body th:classappend="${session.isDarkmode} ? 'mode-dark'">
 
 	<!-- 共通ヘッダ -->
-	<nav class="navbar navbar-expand-lg navbar-dark bg-success">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
 		<h1>
 			<a class="navbar-brand title-font" th:href="@{/}">WebPortal.com</a>
 		</h1>
@@ -76,7 +76,7 @@
 							<input type="number" class="form-control" name="zipcode"
 								placeholder="郵便番号 : XXXXXXX"> <span
 								class="input-group-btn">
-								<button type="submit" class="btn btn-info">検索</button>
+								<button type="submit" class="btn btn-primary">検索</button>
 							</span>
 						</div>
 					</form>
