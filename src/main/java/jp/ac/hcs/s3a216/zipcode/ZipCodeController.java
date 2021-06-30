@@ -24,12 +24,15 @@ public class ZipCodeController {
 	 * @param model
 	 * @return 結果画面 - 郵便番号
 	 */
+	
 	@PostMapping("/zip")
-	public String getZipCode(@RequestParam("zipcode") String zipcode,
+	public String getZipCode(@RequestParam("zipcode")String zipcode,
 			Principal principal,Model model) {
 		
 		ZipCodeEntity zipCodeEntity = zipCodeService.getZip(zipcode);
 		model.addAttribute("zipCodeEntity", zipCodeEntity);
+		
+		
 		
 		
 		log.info("["+principal.getName()+"]住所検索結果:"+zipcode);

@@ -9,6 +9,7 @@ import lombok.Data;
 @Data
 public class ZipCodeData {
 	
+	
 	/**郵便番号*/
 	private String zipcode;
 	
