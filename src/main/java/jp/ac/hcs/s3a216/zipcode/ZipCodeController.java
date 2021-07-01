@@ -34,9 +34,10 @@ public class ZipCodeController {
 		
 		
 		
-		
 		log.info("["+principal.getName()+"]住所検索結果:"+zipcode);
 		return "zipcode/zipcode";
 	}
+	
+	
 
 }

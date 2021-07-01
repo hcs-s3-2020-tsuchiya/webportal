@@ -11,6 +11,7 @@ public class ZipCodeData {
 	
 	
 	/**郵便番号*/
+	
 	private String zipcode;
 	
 	/**都道府県コード*/

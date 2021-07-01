@@ -40,7 +40,7 @@
 <body th:classappend="${session.isDarkmode} ? 'mode-dark'">
 
 	<!-- 共通ヘッダ -->
-	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-success">
 		<h1>
 			<a class="navbar-brand title-font" th:href="@{/}">WebPortal.com</a>
 		</h1>
@@ -64,48 +64,38 @@
 		</div>
 	</nav>
 
-
-
 	<!-- コンテンツ -->
-	<div class="container">
-		<div class="row">
-
-			<div class="col-sm-6">
-				<div class="content-box">
-					<h2>住所検索 - 郵便番号</h2>
-					<form method="post" th:action="@{/zip}">
-						<div class="input-group">
-							<input type="number" class="form-control" name="zipcode"
-								max="7" min="0" placeholder="郵便番号 : XXXXXXX"> <span
-								class="input-group-btn">
-								<button type="submit" class="btn btn-primary">検索</button>
+	
+			<h1>タスク管理</h1>
+			<hr>
+			
+			<form method="post" th:action="@{/task/insert}">
+					<div class="input-group">
+							<input type="text" class="form-control" name="comment" placeholder="タスク内容">
+							<input type="date" class="form-control" name="limitday">
+							<span class="input-group-btn">
+									<button type="submit" class="btn btn-warning">追加</button>
 							</span>
-						</div>
-					</form>
-				</div>
-			</div>
-			<div class="col-sm-6">
-				<div class="content-box">
-					<h2>札幌の天気予報</h2>
-					<form method="post" th:action="@{/weather}">
-						
-								<button type="submit" class="btn btn-primary">詳細</button>
-							</span>
-						</div>
-					</form>
-				</div>
-			<div class="col-sm-6">
-				<div class="content-box">
-					<h2>直近のタスク</h2>
-					<form method="post" th:action="@{/task}">
-						
-								<button type="submit" class="btn btn-primary">詳細</button>
-							</span>
-						</div>
-					</form>
-				</div>
-			</div>
-
+					</div>
+			</form>
+			
+			<hr>
+			
+			<ul th:each="task : ${map}">
+					<li>
+							<a th:href="@{'/task/delete/' + ${task.id}">
+									<span th:text="${map}"></span>
+							</a>
+							<span th:text="${map}"></span>
+					</li>
+			</ul>
+			
+			<hr>
+			
+			<form method="post" th:action="@{/task/csv}">
+					<button type="submit" class="btn btn-info">CSV出力</button>
+			</form>
+			
 		</div>
 	</div>
 
