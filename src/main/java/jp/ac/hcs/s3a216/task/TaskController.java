@@ -52,15 +52,26 @@ public class TaskController {
 	public String insertTask(@RequestParam(name="comment") String comment,@RequestParam("limitday")String limitday,
 			Principal principal,Model model) {
 		
+		/*boolean result = isValid(comment,limitday);
+		if(!result) {
+			//エラーのため追加しない
+			model.addAttribute("errorMessage","入力項目に不備があります");
+			return getTaskList(principal,model);
+		}
+		*/
+		
 		
 		
 		log.info("[" + principal.getName()+"]タスク追加:"+ "コメント"+ comment + "期限日:" + limitday);
 		boolean isSuccess = taskService.insert(principal.getName(),comment,limitday);
 		
+		//実行結果を取得
 		if(isSuccess) {
 			log.info("成功");
+			//model.addAttribute("message","正常に登録されました。");
 		}else {
 			log.info("失敗");
+			//model.addAttribute("errorMessage","正しく登録できませんでした。");
 		}
 		
 		return getTaskList(principal,model);
@@ -69,6 +80,28 @@ public class TaskController {
 	
 	
 	
+	/*private boolean isValid(String comment, String limitday) {
+		
+		//nullチェック、空文字チェック、文字数チェック
+		if(comment==null || comment.isBlank() || comment.length() > 50) {
+			return false;
+		}
+		
+		//nullチェック、空文字チェック
+		if(limitday == null || limitday.isBlank()) {
+			return false;
+		}
+		
+		//日付形式チェック
+		try {
+			SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+			format.parse(limitday);
+		}catch(ParseException e) {
+			return false;
+		}
+		
+		return false;
+	}*/
 	/**
 	 * 自分の全てのタスク情報をCSVファイルとしてダウンロードさせる.
 	 * @param principal ログイン情報
