@@ -92,8 +92,21 @@ public class TaskService {
 		byte[] bytes = Files.readAllBytes(p);
 		return bytes;
 	}
-	
-	
+	/**
+	 * 指定されたIDのタスクを削除する
+	 * @param id タスクID
+	 * @return 1件以上であればtrue,それ以外はfalse
+	 */
+	public boolean delete(int id) {
+		int count;
+		try {
+			count = taskRepository.deleteOne(id);
+		}catch(DataAccessException e) {
+			e.printStackTrace();
+			count = 0;
+		}
+		return count > 0;
+	}
 	
 	
 }
