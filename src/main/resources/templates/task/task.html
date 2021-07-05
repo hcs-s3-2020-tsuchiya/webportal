@@ -81,12 +81,12 @@
 			
 			<hr>
 			
-			<ul th:each="task : ${map}">
+			<ul th:each="task : ${taskEntity.tasklist}">
 					<li>
-							<a th:href="@{'/task/delete/' + ${task.id}">
-									<span th:text="${map}"></span>
+							<a th:href="@{'/task/delete/' + ${task.id}}">
+									<span th:text="${task.limitday}"></span>
 							</a>
-							<span th:text="${map}"></span>
+							<span th:text="${task.comment}"></span>
 					</li>
 			</ul>
 			
