@@ -40,7 +40,7 @@
 <body th:classappend="${session.isDarkmode} ? 'mode-dark'">
 
 	<!-- 共通ヘッダ -->
-	<nav class="navbar navbar-expand-lg navbar-dark bg-success">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-danger">
 		<h1>
 			<a class="navbar-brand title-font" th:href="@{/}">WebPortal.com</a>
 		</h1>
@@ -65,22 +65,53 @@
 	</nav>
 
 	<!-- コンテンツ -->
-	<div class="container">
-		<div class="content-box">
-			<h1>北海道グルメ</h1>
-			<h2>「<span th:text="${shopEntity.shopname}"></span>」の検索結果</h2>
-			<!-- 基本1件だが、API構造に従い繰り返し構文とする-->
-			<ul th:each="shop : ${shopEntity.results}">
-					<li><img class = "shopimage" th:src="${shop.logo_image}"/></li>
-					<li><span th:text="${shop.name}">名前</span></li>
-					<li><a th:href="'https://www.google.com/maps/search/?api=1&query=' + ${shop.address}" target="new"><span th:text="${shop.address}">
-					</span></a></li>
-					<li><span th:text="${shop.access}">アクセス</span></li>
+	
+	<div class="content-box table-responsive">
+			<h2 style="text-align : left">ユーザ一覧</h2>
+	
+			<hr>
+			
+			<table class="table" border="1">
+			
+			<tr class="thead-dark"><th>ユーザID（メールアドレス)　</th>
+				<th>アカウント有効性　</th>
+				<th>ユーザ名　</th>
+				<th>ダークモード</th>
+				<th>権限 </th></tr>
+			
+			
+	
+			<tr th:each="user : ${userEntity.userlist}">
+			
+			
+			
+			<td th:text="${user.user_id}"></td>
+			
+			<td th:text="${user.enabled}"></td>
+			
+			<td th:text="${user.user_name}"></td>
+			
+			<td  th:text="${user.darkmode}"></td>
+			
+			<td  th:text="${user.role}"></td>
+			
+			
+			</table>
+			
 					
-					
-			</ul>
-		</div>
-	</div>
+			<hr>
+			
+			
+					<form method="post" th:action="@{/user/insert}" style="text-align : left">
+					<span style="text-align : left" class="input-group-btn">
+					<button type="submit" class="btn btn-warning" >作成</button>
+					</span>
+					</form>
+								
+							
+					</div>
+			
+		
 
 	<!-- 共通スクリプト -->
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

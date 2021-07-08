@@ -118,6 +118,18 @@
 					</form>
 				</div>
 			</div>
+			<div class="col-sm-6" role="presentation"
+				sec:authorize="hasRole('ADMIN')">
+				<!-- 管理者のみのコンテンツ -->
+				<div class="content-box">
+					<h2>ユーザ管理</h2>
+					<form method="post" th:action="@{/user/list}">
+								<button type="submit" class="btn btn-primary">ユーザ管理へ</button>
+					</form>
+				</div>
+			</div>
+			
+			
 				
 			</div>
 
