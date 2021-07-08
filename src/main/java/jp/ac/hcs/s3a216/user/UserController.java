@@ -29,14 +29,21 @@ public class UserController {
 		
 		return "user/userList";
 	}
-}
-	
 	/**
 	 * ユーザ登録画面（管理者用）を表示する。
 	 * @param form 登録時の入力チェック用UserForm
 	 * @param model
 	 * @return ユーザ登録画面（管理者用）
 	 */
+	@PostMapping("/user/insert")
+	public String getUserInsert(Principal principal,Model model) {
+		return "user/insert";
+	}
+	
+	
+}
+	
+
 //	@PostMapping("/user/insert")
 //	public String getUserInsert(@ModelAttribute @Validated UserForm form,
 //			BindingResult bindingResult,
