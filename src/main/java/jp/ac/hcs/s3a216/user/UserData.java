@@ -52,5 +52,6 @@ public class UserData {
 	 * 必須入力
 	 */
 	private String role;
+	
 
 }

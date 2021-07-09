@@ -43,6 +43,7 @@ public class WeatherService {
 			ObjectMapper mapper = new ObjectMapper();
 			JsonNode node = mapper.readTree(json);
 			
+			weatherEntity.setDescription(node.get("description").get("text").asText());
 			
 			//forecast(配列)をForEachで配列分繰り返す（例外の可能性あり）
 			for(JsonNode forecast:node.get("forecasts")) {

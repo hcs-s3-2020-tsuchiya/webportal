@@ -73,8 +73,13 @@
 			<ul th:each="forecast : ${weatherEntity.forecasts}">
 					<li><h4><span th:text="${forecast.dateLabel}"></span></h4></li>
 					<li><span th:text="${forecast.telop}"></span></li>
+					
 			</ul>
+			<p th:text="${weatherEntity.description}"></p>
+			<hr>
+			
 		</div>
+		
 	</div>
 
 	<!-- 共通スクリプト -->

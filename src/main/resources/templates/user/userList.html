@@ -77,11 +77,11 @@
 				<th>アカウント有効性　</th>
 				<th>ユーザ名　</th>
 				<th>ダークモード</th>
-				<th>権限 </th></tr>
+				<th colspan="2">権限 </th></tr>
 			
 			
 	
-			<tr th:each="user : ${userEntity.userlist}">
+			<tr th:each="user : ${userEntity.userlist}" th:object="${userEntity}">
 			
 			
 			
@@ -93,8 +93,9 @@
 			
 			<td  th:text="${user.darkmode}"></td>
 			
-			<td  th:text="${user.role}"></td>
+			<td  colspan="1" th:text="${user.role}"></td>
 			
+			<td><a class="btn btn-success" th:href="@{'/user/detail/' + ${user.user_id}}">詳細</a></td>
 			
 			</table>
 			
@@ -102,7 +103,7 @@
 			<hr>
 			
 			
-					<form method="post" th:action="@{user/insert}" style="text-align : left">
+					<form method="get" th:action="@{/user/insert}" style="text-align : left">
 					<span style="text-align : left" class="input-group-btn">
 					<button type="submit" class="btn btn-warning" >作成</button>
 					</span>
