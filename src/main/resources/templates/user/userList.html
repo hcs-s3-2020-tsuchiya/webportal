@@ -87,11 +87,12 @@
 			
 			<td th:text="${user.user_id}"></td>
 			
-			<td th:text="${user.enabled}"></td>
+			<td th:text="${user.enabled} ? 有効:無効"></td>
+			
 			
 			<td th:text="${user.user_name}"></td>
 			
-			<td  th:text="${user.darkmode}"></td>
+			<td  th:text="${user.darkmode} ? ダークモード:ー"></td>
 			
 			<td  colspan="1" th:text="${user.role}"></td>
 			
