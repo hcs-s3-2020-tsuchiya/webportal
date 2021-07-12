@@ -22,6 +22,14 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 	
+	/**
+	 * ユーザ画面を表示する。
+	 * @param 検索する郵便番号(ハイフンなし)
+	 * @param principal ログイン情報
+	 * @param model
+	 * @return ユーザー一覧
+	 */
+	
 	@PostMapping("/user/list")
 	public String getUserList(Principal principal,Model model) {
 		

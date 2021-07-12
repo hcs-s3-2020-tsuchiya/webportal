@@ -23,7 +23,7 @@ public class TaskService {
 	
 	
 	/**
-	 * 指定した天気に紐づく天気予報情報を取得する。
+	 * 指定したタスクに紐づくタスク情報を取得する。
 	 * @param  userId ユーザID
 	 * @return TaskEntity
 	 */
@@ -55,6 +55,15 @@ public class TaskService {
 	}
 
 
+	
+	/**
+	 * 入力項目をTaskDataへ変換している
+	 * @param user_id
+	 * @param comment
+	 * @param limitday
+	 * @return
+	 */
+	
 	private TaskData refillToData(String user_id, String comment, String limitday) {
 		TaskData taskData = new TaskData();
 		taskData.setUser_id(user_id);

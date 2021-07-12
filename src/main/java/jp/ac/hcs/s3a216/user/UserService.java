@@ -31,6 +31,9 @@ public class UserService {
 		return userEntity;
 	}
 	
+	/*
+	 *指定したユーザIDのタスク情報から消去する。 
+	 */
 	
 	public boolean deleteOne(String user_id) {
 		
@@ -47,9 +50,9 @@ public class UserService {
 	
 	
 	
-	
-	
-	
+	/*
+	 *指定した1つのユーザIDを取得する。 
+	 */
 	public UserData selectOne(String user_id) {
 		UserData data;
 		try {
