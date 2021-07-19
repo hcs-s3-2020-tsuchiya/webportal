@@ -68,7 +68,13 @@
 
 	<!-- コンテンツ -->
 	<div class="container">
-	
+	<form method="post" th:action="@{/gourmet}">
+		<div class="input-group">
+			<input type="text" class="form-control" name="shopname"
+				max="7" min="0" placeholder="検索項目 : 〇〇〇〇"> <span
+				class="input-group-btn">
+			<button type="submit" class="btn btn-primary">検索</button></span>
+						</div>
 	<table class="table" border="1">
 			<tr class="thead-dark"><th>ユーザID（メールアドレス)　</th>
 				<th>アカウント有効性　</th>
