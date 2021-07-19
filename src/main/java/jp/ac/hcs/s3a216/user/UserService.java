@@ -16,6 +16,7 @@ public class UserService {
 	@Autowired
 	UserRepository userRepository;
 	
+	
 	/*
 	 *指定したユーザIDのタスク情報を全権取得する。 
 	 */
@@ -40,6 +41,27 @@ public class UserService {
 		int rowNumber;
 		try {
 			rowNumber = userRepository.deleteOne(user_id);
+		}catch(DataAccessException e) {
+			e.printStackTrace();
+			rowNumber = 0;
+		}
+		return rowNumber > 0;
+	}
+	
+	
+	
+	
+	/*
+	 *指定したユーザIDのタスク情報から更新する。 
+	 */
+	
+	public boolean updateOne(UserForm userForm) {
+		
+		UserData userData = refillData(userForm);
+		
+		int rowNumber;
+		try {
+			rowNumber = userRepository.updateOne(userData);
 		}catch(DataAccessException e) {
 			e.printStackTrace();
 			rowNumber = 0;

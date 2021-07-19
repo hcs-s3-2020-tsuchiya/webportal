@@ -41,7 +41,8 @@ public class UserController {
 		model.addAttribute("userEntity", userEntity);
 		
 		
-		return "user/userList";
+		//return "user/userList";
+		return "index";
 	}
 	/**
 	 * ユーザ登録画面（管理者用）を表示する。
@@ -110,6 +111,28 @@ public class UserController {
 		
 		return getUserList(principal,model);
 	}
+	
+	
+	
+	@PostMapping("/user/update")
+	public String updateTask(@ModelAttribute @Validated UserForm form,
+			BindingResult bindingResult,
+			Principal principal,
+			Model model) {
+		
+		userService.updateOne(form);
+		
+		return getUserList(principal,model);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
